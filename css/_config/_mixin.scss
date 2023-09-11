@@ -1,0 +1,31 @@
+@charset "UTF-8";
+//mixin用scss
+
+@mixin hvr($op:0.7){
+	transition: opacity 0.3s;
+	&:not([disabled]):hover{opacity: $op;}
+}
+@mixin hvrL($color){
+	transition: background-color 0.3s;
+	&:not([disabled]):hover{background-color: $color;}
+}
+@mixin bgHvrL($color, $per: 15){
+  background-color: $color;
+	transition: background-color 0.3s;
+	&:not([disabled]):hover{background-color: lighten($color, $per);}
+}
+@mixin hvrBrt($brt:1.5){
+	transition: filter 0.3s;
+	&:not([disabled]):hover{filter: brightness(percentage($brt));}
+}
+
+
+//フォントの種類
+@mixin anti{-webkit-font-smoothing: antialiased;}
+@mixin yugo{font-family: "Yu Gothic", "游ゴシック", YuGothic, "游ゴシック体";}
+@mixin yugoM{font-family: "Yu Gothic Medium", "游ゴシック Medium", YuGothic, "游ゴシック体";}
+@mixin noto{font-family: 'Noto Sans JP', sans-serif;}
+
+
+
+

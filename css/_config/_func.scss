@@ -1,0 +1,29 @@
+@charset "UTF-8";
+//function用scss
+
+@function px($suuji){
+	@return $suuji * 1px;
+}
+@function px100($suuji){
+	@return $suuji * 100px;
+}
+@function vw1($suuji){
+	@return ($suuji / $spDesign) * 1vw;
+}
+@function vw($suuji){
+	@return ($suuji / $spDesign) * 100vw;
+}
+@function vwL($suuji){//PC幅の時
+	@return ($suuji / $pcDesign) * 100vw;
+}
+@function vwT($suuji){//タブレット幅の時
+	@return ($suuji / $tabBP) * 100vw;
+}
+@function per1($suuji){
+	@return percentage($suuji / 100);
+}
+@function em($suuji){
+	@return ($suuji) * 1em;
+}
+
+
