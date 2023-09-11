@@ -1,0 +1,467 @@
+@charset "UTF-8";
+
+/*--------------------------------------
+ 資料アーカイブ
+---------------------------------------*/
+.archiveBox{
+  .carList{
+    @include mqEmPc{
+      display: flex;
+      flex-wrap: wrap;
+    }
+    > li{
+      margin-bottom: 50px;
+      text-align: center;
+      @include mqEmPc{
+        width: 33.3334%;
+        //PC時、行毎のタイヤ位置を揃える為に車画像の位置を調整
+        overflow: hidden;
+//        background-color: rgba(0,0,255,0.1);
+//        position: relative;
+//        &:after{
+//          content: "";
+//          display: block;
+//          background-color: #f00;
+//          width: 100%;
+//          height: 1px;
+//          position: absolute;
+//          left: 0;
+//        }
+        &:nth-child(1),
+        &:nth-child(2),
+        &:nth-child(3){&:after{bottom: 10px;}}
+        &:nth-child(4),
+        &:nth-child(5),
+        &:nth-child(6){&:after{bottom: 12px;}}
+        &:nth-child(7),
+        &:nth-child(8),
+        &:nth-child(9){&:after{bottom: 12px;}}
+        &:nth-child(10),
+        &:nth-child(11),
+        &:nth-child(12){&:after{bottom: 9px;}}
+        &:nth-child(13),
+        &:nth-child(14),
+        &:nth-child(15){&:after{bottom: 7px;}}
+        &.impr figure{top: 4px;}
+        &.cros figure{top: 4px;}
+        &.fore figure{top: 0px;}
+        &.lega figure{top: 6px;}
+        &.solt figure{top: 0px;}
+        &.levo figure{top: 0px;}
+        &.wrx figure{top: 6px;}
+        &.brz figure{top: 9px;}
+        &.just figure{top: 0px;}
+        &.chif figure{top: 2px;}
+        &.stel figure{top: 0px;}
+        &.pleo figure{top: 4px;}
+        &.rex figure{top: 6px;}
+        &.samb figure{top: 0px;}
+        &.past figure{top: 12px;}
+      }
+      @include mqEm{
+      }
+      > a{
+        display: block;
+        @include hvr(0.5);
+      }
+      h3{
+        height: 60px;
+        svg{
+          height: 100%;
+          @include mqEmPc{width: 100%;}
+          @include mqEm{width: 345px;}
+        }
+      }
+      figure{
+        position: relative;//PC時、行毎のタイヤ位置を揃える為
+        img{
+          max-height: 110px;
+        }
+      }
+      &.past{
+        h3{
+          height: auto;
+          margin-bottom: 20px;
+          font-size: 20px;
+          font-weight: bold;
+        }
+      }
+    }//li
+  }//.carList
+  .txtToRegi{
+    a{
+      text-decoration: underline;
+      &:hover{text-decoration: none;}
+    }
+  }
+  .genreBox{
+  }//.genreBox
+}//.archiveBox
+
+
+/*--------------------------------------
+ 確認モーダル
+---------------------------------------*/
+.confModal{
+  visibility: hidden;
+  opacity: 0;
+  background-color: rgba(0,0,0,0.5);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9001;
+  transition: 0.3s;
+  &.show{
+    visibility: visible;
+    opacity: 1;
+  }
+  .in{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+  .kiyakuBox{
+    background-color: #fff;
+    @include mqEmPc{
+      width: 600px;
+    }
+    @include mqEm{
+      width: vw(580);
+    }
+    h2{
+      background-color: #666;
+      padding: 15px;
+      color: #fff;
+      @include mqEmPc{
+      }
+      @include mqEm{
+      }
+    }
+    .txt{
+      background-color: #eee;
+      padding: 20px 15px;
+      @include mqEmPc{
+      }
+      @include mqEm{
+      }
+    }
+    .btnBox{
+      padding: 15px;
+      @include mqEmPc{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      @include mqEm{
+      }
+      a{
+        display: block;
+        margin: 0 5px;
+        border: 1px solid #000;
+        @include mqEmPc{
+          width: 195px;
+        }
+        @include mqEm{
+        }
+        + a{
+          @include mqEm{
+            margin-top: 10px;
+          }
+        }
+      }
+    }
+  }
+}//.confModal
+
+
+/*--------------------------------------
+ box画面
+---------------------------------------*/
+.dlBox{
+  @include mqEmPc{
+  }
+  @include mqEm{
+  }
+  header{
+    margin-bottom: 20px;
+    @include mqEmPc{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    @include mqEm{
+      text-align: center;
+    }
+    h3{
+      @include mqEmPc{width: 400px;}
+      @include mqEm{
+        height: 80px;
+        overflow: hidden;
+      
+      }
+      svg{
+        width: 100%;
+        @include mqEmPc{}
+        @include mqEm{
+          max-width: 345px;
+          height: 100%;
+          position: relative;
+        }
+      }
+      img{
+        @include mqEmPc{width: 320px;}
+        @include mqEm{
+          width: 100%;
+          max-width: 345px;
+          height: auto;
+          position: relative;
+        }
+      }
+    }
+    figure{
+      img{
+        @include mqEmPc{width: 500px;}
+        @include mqEm{
+          width: 100%;
+          max-width: 345px;
+        }
+      }
+    }
+    &.onlyTxt{
+      @include mqEmPc{
+        display: block;
+      }
+      @include mqEm{
+        text-align: left;
+      }
+      h3{
+        @include mqEmPc{width: 100%;}
+        @include mqEm{
+          height: auto;
+        }
+      }
+    }
+  }//header
+  .txt1{
+    margin-bottom: 20px;
+  }
+  .frameWrap{
+    iframe{
+      display: block;
+      width: 100%;
+      @include mqEm{height: 300px;}
+    }
+    + h4{
+      margin-top: 50px;
+    }
+  }
+  &.is_brz{
+    header{
+      h3{
+        svg{
+          @include mqEm{
+            height: 140%;
+            top: -10px;
+          }
+        }
+      }
+    }
+  }
+  &.is_chif{
+    header{
+      h3{
+        svg{
+          @include mqEm{
+          }
+        }
+      }
+    }
+  }
+  &.is_cros{
+    header{
+      h3{
+        svg{
+          @include mqEm{
+          }
+        }
+      }
+    }
+  }
+  &.is_etcComp{
+    header{
+      h3{
+        svg{
+          @include mqEm{
+          }
+        }
+      }
+    }
+  }
+  &.is_etcShow{
+    header{
+      h3{
+        svg{
+          @include mqEm{
+          }
+        }
+      }
+    }
+  }
+  &.is_etcSkil{
+    header{
+      h3{
+        svg{
+          @include mqEm{
+          }
+        }
+      }
+    }
+  }
+  &.is_etcSpor{
+    header{
+      h3{
+        svg{
+          @include mqEm{
+          }
+        }
+      }
+    }
+  }
+  &.is_fore{
+    header{
+      h3{
+        svg{
+          @include mqEm{
+          }
+        }
+      }
+    }
+  }
+  &.is_impr{
+    header{
+      h3{
+        svg{
+          @include mqEm{
+          }
+        }
+      }
+    }
+  }
+  &.is_just{
+    header{
+      h3{
+        svg{
+          @include mqEm{
+          }
+        }
+      }
+    }
+  }
+  &.is_lega{
+    header{
+      h3{
+        svg{
+          @include mqEm{
+          }
+        }
+      }
+    }
+  }
+  &.is_levo{
+    header{
+      h3{
+        svg{
+          @include mqEm{
+            height: 130%;
+            left: 10px;
+          }
+        }
+      }
+    }
+  }
+  &.is_past{
+    header{
+      h3{
+        svg{
+          @include mqEm{
+          }
+        }
+      }
+    }
+  }
+  &.is_pleo{
+    header{
+      h3{
+        img{
+          @include mqEm{
+            width: 260px;
+            top: -20px;
+          }
+        }
+      }
+    }
+  }
+  &.is_rex{
+    header{
+      h3{
+        svg{
+          @include mqEm{
+          }
+        }
+      }
+    }
+  }
+  &.is_samb{
+    header{
+      h3{
+        svg{
+          @include mqEm{
+            height: 130%;
+            top: -10px;
+          }
+        }
+      }
+    }
+  }
+  &.is_solt{
+    header{
+      h3{
+        svg{
+          @include mqEm{
+          }
+        }
+      }
+    }
+  }
+  &.is_stel{
+    header{
+      h3{
+        img{
+          @include mqEm{
+            width: 260px;
+            top: -10px;
+          }
+        }
+      }
+    }
+  }
+  &.is_wrx{
+    header{
+      h3{
+        svg{
+          @include mqEm{
+            height: 140%;
+            top: -10px;
+          }
+        }
+      }
+    }
+  }
+}//.dlBox
+
+
+
